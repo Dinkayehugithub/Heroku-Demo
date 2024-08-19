@@ -1,0 +1,347 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Predicting the Anemia Level of Neonatal Women</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+	<div class="container-contact100">
+		<div class="wrap-contact100">
+			<form action="{{ url_for('predict') }}" method="POST">
+			<table cellpadding="3" width="80%" bgcolor="#ECF0F1" align="center"
+			cellspacing="3" height="30%" border=0px>
+			<tr>
+			<td colspan=2>
+			<center style="color:blue;"><span class="contact100-form-title" style="font-size:20px">Predicting the Anemia Level of Neonatal Women</span></center>
+				<span class="contact100-form-title" id="output" style="color: #ff0000;" >&nbsp;</span>
+				<tr><td>
+				<div class="wrap-input100 " >
+					<span class="label-input100">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mother's age&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+					<select  class="input100" id="v013" name="v013" style="padding: 2px 4px;margin-top: 6px;border: 2px solid #000000;" required>
+							<option value="">Select mother's age...........</option>
+				            <option value="1">fifteen - nineteen</option>
+							<option value="2">twenty - twenty four</option>
+							<option value="3">twenty five - twenty nine</option>
+							<option value="4">thirty - thirty four</option>
+							<option value="5">thirty five - thirty nine</option>
+							<option value="6">fourty - fourty four</option>
+							<option value="7">fourty five - fourty nine</option>
+							</select>
+					<span class="focus-input100"></span>
+					<span class="label-input100">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Place of residenc &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+					<select  class="input100" id="v025" name="v025" style="padding: 2px 4px;margin-top: 6px;border: 2px solid #000000;"required >
+							<option value="">Select place ...................</option>
+							<option value="0">Urban</option>
+							<option value="1">Rural</option>
+				</select>
+					<span class="focus-input100"></span>
+				</div>
+				</td></tr>
+
+
+
+
+
+		<tr><td>
+				<div class="wrap-input100 " >
+					<span class="label-input100">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Water Sourc&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+					<select  class="input100" id="v113" name="v113" style="padding: 2px 4px;margin-top: 6px;border: 2px solid #000000;" required>
+						<option value="">Select water source.............</option>
+				            <option value="0">Not improved</option>
+						<option value="1">improved</option>
+							</select>
+					<span class="focus-input100"></span>
+					<span class="label-input100">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Types of Religion&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+					<select  class="input100" id="v130" name="v130" style="padding: 2px 4px;margin-top: 6px;border: 2px solid #000000;"required >
+							<option value="">Select religions...............</option>
+				                 <option value="0">orthodox</option>
+							<option value="1">catholic</option>
+							<option value="2">protestant</option>
+							<option value="3">muslim</option>
+							<option value="4">others</option>
+				</select>
+					<span class="focus-input100"></span>
+				</div>
+				</td></tr>
+
+
+
+
+<tr><td>
+				<div class="wrap-input100 " >
+					<span class="label-input100">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Literacy of Responde &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+					<select  class="input100" id="v155" name="v155" style="padding: 2px 4px;margin-top: 6px;border: 2px solid #000000;" required>
+				            <option value="">Select literacy...</option>
+				            <option value="0">cannot read</option>
+						<option value="1">read only parts of a sentence</option>
+						<option value="2">read the whole sentence</option>
+						<option value="3">no card with required language</option>
+						<option value="4">blind</option>
+							</select>
+					<span class="focus-input100"></span>
+					<span class="label-input100">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Wealth Index s&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+					<select  class="input100" id="v190" name="v190" style="padding: 2px 4px;margin-top: 6px;border: 2px solid #000000;"required >
+						<option value="">Select wealth index.........</option>
+							<option value="0">poor</option>
+							<option value="1">middle</option>
+							<option value="2">rich</option>
+				</select>
+					<span class="focus-input100"></span>
+				</div>
+				</td></tr>
+
+
+
+
+
+
+<tr><td>
+				<div class="wrap-input100 " >
+					<span class="label-input100">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Contraceptiv&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+				<select  class="input100" id="v364" name="v364" style="padding: 2px 4px;margin-top: 6px;border: 2px solid #000000;"required >
+							<option value="">Select Contrac.....................</option>
+							<option value="0">Using modern methods </option>
+							<option value="1">using traditional methods</option>
+							<option value="2">user intendes to use </option>
+							<option value="3">dose not intends to use</option>
+						</select>
+					<span class="focus-input100"></span>
+					<span class="label-input100">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Breastfeeding St&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+					<select  class="input100" id="v404" name="v404" style="padding: 2px 4px;margin-top: 6px;border: 2px solid #000000;"required >
+						<option value="">Select feeding sta...........</option>
+							<option value="0">No </option>
+							<option value="1">Yes</option>
+				</select>
+					<span class="focus-input100"></span>
+				</div>
+				</td></tr>
+
+
+
+
+
+
+
+
+
+<tr><td>
+				<div class="wrap-input100 " >
+					<span class="label-input100">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Marital Statu&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+					<select  class="input100" id="v501" name="v501" style="padding: 2px 4px;margin-top: 6px;border: 2px solid #000000;" required>
+				           <option value="">Select marital status..........</option>
+						<option value="0">married</option>
+						<option value="1">Widowed</option>
+						<option value="2">Divorced</option>
+						<option value="3">separated</option>
+						</select>
+					<span class="focus-input100"></span>
+					<span class="label-input100">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Number of visits &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+					<select  class="input100" id="v027" name="v027" style="padding: 2px 4px;margin-top: 6px;border: 2px solid #000000;"required >
+						<option value="">Select num of vis............</option>
+							<option value="0">one-times </option>
+							<option value="1">two-times</option>
+							<option value="2">three-times </option>
+							<option value="3">four-times</option>
+							<option value="4">five-times</option>
+				</select>
+					<span class="focus-input100"></span>
+				</div>
+				</td></tr>
+
+
+
+
+
+
+<tr><td>
+				<div class="wrap-input100 " >
+					<span class="label-input100">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cooking Fue&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+					<select  class="input100" id="v161" name="v161" style="padding: 2px 4px;margin-top: 6px;border: 2px solid #000000;" required>
+				       <option value="">Select cooking fuel............</option>
+							<option value="0">Elictricity</option>
+							<option value="1">Gas</option>
+							<option value="2">Wood</option>
+							</select>
+					<span class="focus-input100"></span>
+					<span class="label-input100">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Husband Educatio&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+					<select  class="input100" id="v701" name="v701" style="padding: 2px 4px;margin-top: 6px;border: 2px solid #000000;"required >
+					 <option value="">Select education.............</option>
+							<option value="0">No education</option>
+							<option value="1">primary</option>
+							<option value="2">secondary</option>
+							<option value="3">higher
+							</option>
+
+				</select>
+					<span class="focus-input100"></span>
+				</div>
+				</td></tr>
+
+
+
+
+<tr><td>
+				<div class="wrap-input100 " >
+					<span class="label-input100">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mothers BM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+					<select  class="input100" id="v445" name="v445" style="padding: 2px 4px;margin-top: 6px;border: 2px solid #000000;" required>
+							<option value="">Select BMI.........................</option>
+							<option value="0">Under weight</option>
+							<option value="1">Normal</option>
+							<option value="2">Over weight</option>
+							</select>
+					<span class="focus-input100"></span>
+					<span class="label-input100">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Hasbund occupati&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+			<select  class="input100" id="v705" name="v705" style="padding: 2px 4px;margin-top: 6px;border: 2px solid #000000;"required>
+							<option value="">Select occup ...</option>
+							<option value="0">did not work</option>
+							<option value="1">professional/managerial</option>
+							<option value="2">clerical</option>
+							<option value="3">sales</option>
+							<option value="4">agricultural self employed</option>
+							<option value="5">agricultural employee</option>
+							<option value="6">household and domestic</option>
+							<option value="7">services</option>
+
+				</select>
+					<span class="focus-input100"></span>
+				</div>
+				</td></tr>
+
+
+
+				<tr><td>
+					<div class="wrap-input100 " >
+						<span class="label-input100">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Currently w &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+						<select  class="input100" id="v714" name="v714" style="padding: 2px 4px;margin-top: 6px;border: 2px solid #000000;" required>
+								<option value="">Select Currently w..............</option>
+								<option value="0">no</option>
+								<option value="1">yes</option>
+								</select>
+						<span class="focus-input100"></span>
+						<span class="label-input100">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Has Diarrhea rece&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+				<select  class="input100" id="h11_1" name="h11_1" style="padding: 2px 4px;margin-top: 6px;border: 2px solid #000000;"required>
+								<option value="">Select diarrhea ...............</option>
+								<option value="0">no</option>
+								<option value="1">yes</option>
+	
+					</select>
+						<span class="focus-input100"></span>
+					</div>
+					</td></tr>
+
+
+
+
+					<tr><td>
+						<div class="wrap-input100 " >
+							<span class="label-input100">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vitamin A in&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+							<select  class="input100" id="h34_1" name="h34_1" style="padding: 2px 4px;margin-top: 6px;border: 2px solid #000000;" required>
+									<option value="">Select Vitamin A.................</option>
+									<option value="0">no</option>
+									<option value="1">yes</option>
+									</select>
+							<span class="focus-input100"></span>
+							<span class="label-input100">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Weight of Respon&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+					<select  class="input100" id="hw8_1" name="hw8_1" style="padding: 2px 4px;margin-top: 6px;border: 2px solid #000000;"required>
+									<option value="">Select weight ..................</option>
+									<option value="1">over weight</option>
+									<option value="2">under weight</option>
+									<option value="3">obesty</option>
+									<option value="4">normal</option>
+		
+						</select>
+							<span class="focus-input100"></span>
+						</div>
+						</td></tr>
+
+
+
+
+
+<tr><td>
+				<div class="wrap-input100 " >
+					<span class="label-input100">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Region Type&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+					<select  class="input100" id="v024" name="v024" style="padding: 2px 4px;margin-top: 6px;border: 2px solid #000000;"required >
+							<option value="">Select regions....................</option>
+							<option value="0">Tigray</option>
+				            <option value="1">Afar</option>
+							<option value="2">Amhara</option>
+							<option value="3">Oromia</option>
+							<option value="4">Somali</option>
+							<option value="5">Benshangul</option>
+							<option value="6">Snnpr</option>
+							<option value="7">Gambela</option>
+							<option value="8">Harar</option>
+							<option value="9">Addis ababa</option>
+							<option value="10">Drie dawa</option>
+							</select>
+					<span class="focus-input100"></span>
+					<span class="label-input100">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Women education&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+			<select  class="input100" id="v106" name="v106" style="padding: 2px 4px;margin-top: 6px;border: 2px solid #000000;"required >
+							<option value="">Select educational...........</option>
+							<option value="0">no education</option>
+							<option value="1">primery</option>
+							<option value="2">secondary</option>
+							<option value="3">higher</option>
+
+				</select>
+					<span class="focus-input100"></span>
+				</div>
+				</td></tr>
+
+
+
+
+
+<tr><td>
+				<div class="wrap-input100 " >
+					<span class="label-input100">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Toilete Facil&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+					<select  class="input100" id="v116" name="v116" style="padding: 2px 4px;margin-top: 6px;border: 2px solid #000000;" required>
+							<option value="">Select toilet........................</option>
+							<option value="0">Hygien</option>
+							<option value="1">unhygien</option>
+							</select>
+					<span class="focus-input100"></span>
+					<span class="label-input100">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Household has Ra&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+			<select  class="input100" id="v120" name="v120" style="padding: 2px 4px;margin-top: 6px;border: 2px solid #000000;"required >
+						<option value="">Select Radio....................</option>
+							<option value="0">No </option>
+							<option value="1">Yes</option>
+
+				</select>
+					<span class="focus-input100"></span>
+				</div>
+				</td></tr>
+
+			
+<tr><td>
+	<div class="container-contact100-form-btn">
+		<div class="wrap-contact100-form-btn">
+			<div class="contact100-form-bgbtn"></div>
+			<center><button class="contact100-form-btn"  id='submit' type="submit" value="Submit" style="color: darkred; font-size:20px" >Predict</button></center>
+		</div>
+	</div>
+</td></tr>	
+<tr><td>
+<div class="container-contact100">
+<div class="wrap-contact100">
+<form action="{{ url_for('predict') }}" method="POST">	
+	<div class="row" style="margin:0% 0% 0% 10%">
+		<center>
+			<h4 style="color:red;">{{ prediction_text }}</h4>
+		  </center>
+</div>
+</td></tr></table>
+</form>
+</div>
+</div>					  
+</body>
+</html>
+
+
+
+
+
+
